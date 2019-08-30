@@ -4,6 +4,7 @@ import { FormControl, MenuItem } from '@material-ui/core';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Button from '@material-ui/core/Button';
 
 const currencies = [
     {
@@ -93,6 +94,10 @@ class Form extends Component{
                             }
                             label="Acepto términos y condiciones en infiniti.mx"
                         />
+
+                        <Button variant="outlined" color="primary" className="button">  
+                            REGÍSTRATE
+                        </Button>
 
                     </FormControl>
                 </FormGroup>
