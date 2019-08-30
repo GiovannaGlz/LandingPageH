@@ -6,6 +6,7 @@ const useStyles = makeStyles({
   root: {
     width: '100%',
     maxWidth: 500,
+    font: 'Hind',
   },
 });
 
