@@ -1,31 +1,57 @@
 import React, {Component} from 'react';
 import TextField from '@material-ui/core/TextField';
-import { FormControl, MenuItem } from '@material-ui/core';
+import { FormControl } from '@material-ui/core';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Button from '@material-ui/core/Button';
-
-const currencies = [
+  
+  const agencies = [
     {
-      value: 'USD',
-      label: '$',
+        country: 'Polanco',
     },
     {
-      value: 'EUR',
-      label: '€',
+        country: 'Satélite',
     },
     {
-      value: 'BTC',
-      label: '฿',
+        country: 'Pedregal',
     },
     {
-      value: 'JPY',
-      label: '¥',
+        country: 'Toluca',
     },
   ];
 
 class Form extends Component{
+    constructor(props) {
+        super(props);
+            this.state = {
+                name: '',
+                email: '',
+                password: '',
+                phone: 0,
+                agency: '',
+            };
+    
+        this.handleChange = this.handleChange.bind(this);
+        
+      }
+
+      componentDidMount(){
+          this.setState(
+              {
+                name: this.state.name,
+                email: this.state.email,
+                password: this.state.password,
+                phone: this.state.phone,
+                agency: this.state.agency,  
+              }
+          )
+      }
+    
+      handleChange(event) {
+        ;
+      }
+
     render(){
           
         return(
@@ -40,6 +66,8 @@ class Form extends Component{
                             type="name"
                             name="name"
                             autoComplete="name"
+                            value={this.setState.name} 
+                            onChange={this.handleChange(this.setState.name)}
                             margin="normal"
                             variant="filled"
                         />
@@ -51,6 +79,8 @@ class Form extends Component{
                             type="email"
                             name="email"
                             autoComplete="email"
+                            value={this.setState.email} 
+                            onChange={this.handleChange(this.setState.email)}
                             margin="normal"
                             variant="filled"
                         />
@@ -61,6 +91,8 @@ class Form extends Component{
                             className="Password"
                             type="password"
                             autoComplete="current-password"
+                            value={this.setState.password} 
+                            onChange={this.handleChange(this.setState.password)}
                             margin="normal"
                             variant="filled"
                         />
@@ -68,21 +100,29 @@ class Form extends Component{
                         <TextField
                             id="filled-number"
                             label="Teléfono"
-                            value=""
+                            value={this.setState.phone} 
+                            onChange={this.handleChange(this.setState.phone)}
                             margin="normal"
                             variant="filled"
                         />
 
                         <TextField
-                            id="filled-select-currency"
-                            select
-                            label="Select"
-                            className="Select"
-                            value={currencies.value}
-                            helperText="Please select your currency"
-                            margin="normal"
-                            variant="filled"
-                        />
+                        id="standard-select-currency-native"
+                        select
+                        label="Agencia"
+                        className="select"
+                        value={this.setState.agency}
+                        onChange={this.handleChange(this.setState.agency)}
+                        
+                        helperText="Selecciona tu agencia"
+                        margin="normal"
+                        >
+                        {agencies.map(option => (
+                            <option key={option.country} value={option.country}>
+                            {option.country}
+                            </option>
+                        ))}
+                        </TextField>
 
                          <FormControlLabel
                             control={

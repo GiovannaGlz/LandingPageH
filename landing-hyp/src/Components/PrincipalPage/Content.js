@@ -4,8 +4,9 @@ import Panel1 from './Panel1/Panel1.js';
 import Panel2 from './Panel2/Panel2.js';
 
 
-class Content extends Component {
+class Content extends Component { 
   render () {
+    
     return (
 
         <Container>
