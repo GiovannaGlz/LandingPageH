@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Typography, TextField, MenuItem} from '@material-ui/core';
+import { number } from 'prop-types';
 
 const agency = [
     {
@@ -22,23 +23,23 @@ class Form extends Component {
         this.state = {
             name: '',
             email: '',
-            password: '',
+            phone: number,
             agency: 'Polanco',
             isSubmit: false,
         };
 
-        //this.handleChange = this.handleChange.bind(this);
+        this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    // handleChange(event) {
-    //     this.setState({
-    //         name: event.target.value,
-    //         email: event.target.value,
-    //         password: event.target.value,
-    //         agency: event.target.value,
-    //     });
-    // }
+     handleChange(event) {
+         this.setState({
+             name: event.target.value,
+             email: event.target.value,
+             password: event.target.value,
+             agency: event.target.value,
+         });
+    }
 
     handleSubmit(event) {
         this.setState({ isSubmit: true });
@@ -59,7 +60,7 @@ class Form extends Component {
                         label="Nombre"
                         type="text"
                         value={this.state.name}
-                       // onChange={this.handleChange(this.setState.name)}
+                       onChange={this.handleChange}
                         autoComplete="current-name"
                         margin="normal"
                     />
@@ -69,18 +70,18 @@ class Form extends Component {
                         label="Email"
                         type="email"
                         value={this.state.email}
-                        //onChange={this.handleChange(this.setState.email)}
+                        onChange={this.handleChange}
                         autoComplete="current-email"
                         margin="normal"
                     />
 
                 <TextField
-                        id="outlined-password-input"
-                        label="Password"
-                        type="password"
-                        value={this.state.password}
-                        //onChange={this.handleChange(this.setState.password)}
-                        autoComplete="current-password"
+                        id="outlined-phone-input"
+                        label="Teléfono"
+                        type="phone"
+                        value={this.state.phone}
+                        onChange={this.handleChange}
+                        autoComplete="current-phone"
                         margin="normal"
                     />
 
@@ -89,7 +90,7 @@ class Form extends Component {
                         select
                         label="Agencia"
                         value={this.state.agency}
-                        //onChange={this.handleChange(this.setState.agency)}
+                        onChange={this.handleChange}
                         helperText="Por favor selecciona una agencia"
                         margin="normal"
                         variant="outlined"
