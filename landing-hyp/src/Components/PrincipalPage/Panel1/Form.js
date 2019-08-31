@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Typography, TextField, MenuItem} from '@material-ui/core';
+import {Typography, Divider, TextField, FormControlLabel, Checkbox, MenuItem, Input} from '@material-ui/core';
 import { number } from 'prop-types';
 
 const agency = [
@@ -32,6 +32,7 @@ class Form extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    
      handleChange(event) {
          this.setState({
              name: event.target.value,
@@ -40,6 +41,7 @@ class Form extends Component {
              agency: event.target.value,
          });
     }
+
 
     handleSubmit(event) {
         this.setState({ isSubmit: true });
@@ -50,13 +52,17 @@ class Form extends Component {
         let view;
 
         if (isSubmit) {
-            view = <Typography variant="body1" gutterBottom>
-                Gracias por registrarte, en breve te contactaremos
-                 </Typography>
+            view = 
+            <div>
+                <Divider />
+                    <Typography variant="body1" gutterBottom>
+                        Gracias por registrarte, en breve te contactaremos
+                        </Typography>
+                 </div>
         } else {
             view = <form onSubmit={this.handleSubmit}>
                 <TextField
-                        id="outlined-name"
+                        
                         label="Nombre"
                         type="text"
                         value={this.state.name}
@@ -66,7 +72,7 @@ class Form extends Component {
                     />
 
                 <TextField
-                        id="outlined-email-input"
+                        
                         label="Email"
                         type="email"
                         value={this.state.email}
@@ -76,7 +82,7 @@ class Form extends Component {
                     />
 
                 <TextField
-                        id="outlined-phone-input"
+                        
                         label="Teléfono"
                         type="phone"
                         value={this.state.phone}
@@ -86,7 +92,7 @@ class Form extends Component {
                     />
 
                 <TextField
-                        id="outlined-select-currency"
+                        
                         select
                         label="Agencia"
                         value={this.state.agency}
@@ -102,7 +108,21 @@ class Form extends Component {
                         ))}
                     </TextField>
 
-                <input type="submit" value="Submit" onClick={this.handleSubmit} />
+                    <FormControlLabel
+                        control={
+                        <Checkbox
+                            value="checked"
+                            color="primary"
+                        />
+                        }
+                        label="Acepto términos y condiciones en infiniti.mx"
+                    />
+
+                <Input 
+                    type="submit" 
+                    value="Registrarse" 
+                    onClick={this.handleSubmit} 
+                />
             </form>;
         }
 
