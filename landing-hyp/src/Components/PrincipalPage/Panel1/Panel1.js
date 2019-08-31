@@ -8,7 +8,7 @@ class Panel1 extends Component {
   render () {
     return (
 
-        <Container maxWidth="sm">
+        <Container>
             <Title/>
              <Form/>
         </Container>
