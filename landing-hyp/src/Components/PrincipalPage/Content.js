@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Grid } from '@material-ui/core';
+import { Grid, Divider } from '@material-ui/core';
 import Panel1 from './Panel1/Panel1.js';
 import Panel2 from './Panel2/Panel2.js';
 import '../../Resources/style.css'
@@ -9,7 +9,8 @@ class Content extends Component {
   render () {
     
     return (
-
+      <div>
+      <Divider variant='fullWidth'/>
         <Grid container
               direction="row"
               justify="space-between"
@@ -21,6 +22,7 @@ class Content extends Component {
             <Panel2/>
           </Grid>
         </Grid>
+        </div>
   )
 }
 }

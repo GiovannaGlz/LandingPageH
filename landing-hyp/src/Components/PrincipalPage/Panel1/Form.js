@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import {Typography, Divider, TextField, FormControlLabel, Checkbox, MenuItem, Input} from '@material-ui/core';
+import {Divider, TextField, FormGroup, FormControlLabel, Checkbox, MenuItem, Input} from '@material-ui/core';
+import { ThemeProvider } from '@material-ui/styles';
 import { number } from 'prop-types';
+import '../../../Resources/style.css'
+
 
 const agency = [
     {
@@ -54,47 +57,47 @@ class Form extends Component {
         if (isSubmit) {
             view = 
             <div>
-                <Divider />
-                    <Typography variant="body1" gutterBottom>
+                <Divider variant='inset'/>
+                    <p>
                         Gracias por registrarte, en breve te contactaremos
-                        </Typography>
+                        </p>
                  </div>
         } else {
-            view = <form onSubmit={this.handleSubmit}>
+            view = <FormGroup onSubmit={this.handleSubmit}>
+
+<ThemeProvider>
                 <TextField
-                        
-                        label="Nombre"
+                        label="NOMBRE COMPLETO"
                         type="text"
                         value={this.state.name}
                        onChange={this.handleChange}
                         autoComplete="current-name"
                         margin="normal"
+                        id="mui-theme-provider-outlined-input"
                     />
 
                 <TextField
-                        
-                        label="Email"
+                        label="EMAIL"
                         type="email"
                         value={this.state.email}
                         onChange={this.handleChange}
                         autoComplete="current-email"
                         margin="normal"
+                        id="mui-theme-provider-outlined-input"
                     />
 
-                <TextField
-                        
-                        label="Teléfono"
-                        type="phone"
+                <TextField                        
+                        label="TELÉFONO"
+                        type="tel"
                         value={this.state.phone}
                         onChange={this.handleChange}
                         autoComplete="current-phone"
-                        margin="normal"
+                        id="mui-theme-provider-outlined-input"
                     />
 
-                <TextField
-                        
+                <TextField                        
                         select
-                        label="Agencia"
+                        label="AGENCIA"
                         value={this.state.agency}
                         onChange={this.handleChange}
                         helperText="Por favor selecciona una agencia"
@@ -123,7 +126,8 @@ class Form extends Component {
                     value="Registrarse" 
                     onClick={this.handleSubmit} 
                 />
-            </form>;
+            </ThemeProvider>
+        </FormGroup>;
         }
 
         return (

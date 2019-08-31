@@ -10,8 +10,8 @@
     justify-content: center;
 }
 
-.App, .Content{
-    background-color: rgba(224, 221, 221, 0.404);
+body .App, .Content{
+    background-color: rgba(209, 201, 201, 0.404);
   }
 
 .Form{
@@ -22,5 +22,12 @@
 
 h1, h3{
     font-size: 3vw;
-    margin: 0vw;
+    margin: 1vw;
+}
+
+/*====== Form ======*/
+p{
+    font-size: 3vw;
+    margin: 2vw;
+    text-align: center;
 }
